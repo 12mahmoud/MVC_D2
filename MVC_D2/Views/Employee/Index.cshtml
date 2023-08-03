@@ -1,0 +1,44 @@
+﻿@model List<Employee>
+@{
+    ViewData["Title"] = "Index";
+    int i = 1;
+}
+<a href="/employee/AddForm" class="btn btn-info">ADD</a>
+
+<table class="table">
+    <thead>
+        <tr class ="table-warning">
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Salary</th>
+            <th scope="col" class="form-label">Email</th>
+            <th scope="col">Controls</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="table-warning">
+                <th scope="row">@(i++)</th>
+                
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Salary</td>
+                <td>@item.Email</td>
+                <td>
+                    <a href="/employee/Delete/@item.Id">Delete</a>
+                    -
+                    <a href="/employee/EditForm/@item.Id">Edit</a>
+                    -
+                    <a href="/employee/Details/@item.Id">Details</a>
+                </td>
+                
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+

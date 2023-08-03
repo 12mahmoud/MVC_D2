@@ -1,0 +1,33 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Details";
+    DataContext context=new DataContext();
+    var o = context.office.SingleOrDefault(o => o.Id == Model.Off_Id);
+}
+
+<h1>Details</h1>
+<div class="card">
+    <img src="https://www.ncertbooks.guru/wp-content/uploads/2022/05/Course-details.png" class="card-img-top" alt="employee details">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Salary : @Model.Salary</li>
+        <li class="list-group-item">Age : @Model.Age</li>
+        <li class="list-group-item">Email : @Model.Email</li>
+        
+        @if (Model.Off_Id != null)
+        {
+        <li class="list-group-item">Office :@o.Name  </li>
+        }else{
+        <li class="list-group-item">Office :"N/A"  </li>
+        }
+    </ul>
+    <div class="card-body">
+        <a href="/employee/index" class="card-link">Back to Employees</a>
+        
+    </div>
+</div>
+
