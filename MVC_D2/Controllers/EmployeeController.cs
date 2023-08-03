@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MVC_D2.Models;
 
 namespace MVC_D2.Controllers
@@ -59,7 +60,7 @@ namespace MVC_D2.Controllers
         }
         public IActionResult Details(int id)
         {
-            Employee employee=context.employee.SingleOrDefault(e=>e.Id == id);
+            Employee employee=context.employee.Include(s=> s.office).SingleOrDefault(e=>e.Id == id);
             if (employee == null)
             {
                 return Content("Error");
