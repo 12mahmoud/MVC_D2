@@ -14,11 +14,13 @@ namespace MVC_D2.Controllers
 
         public IActionResult Index()
         {
-            List<Employee> employees = context.employee.ToList();
+            List<Employee> employees = context.employee.Include(s=>s.office).ToList();
             return View(employees);
         }
         public IActionResult AddForm()
         {
+           List<Office> offices=context.office.ToList();
+            ViewBag.offices = offices;
             return View();
         }
         public IActionResult AddToDB(Employee employee) {
@@ -42,6 +44,7 @@ namespace MVC_D2.Controllers
         }
         public IActionResult EditForm(int id) { 
             Employee employee=context.employee.SingleOrDefault(e=>e.Id == id);
+            ViewBag.offices= context.office.ToList();
             return View(employee);
         }
         public IActionResult EditDB(Employee employee)
@@ -52,6 +55,7 @@ namespace MVC_D2.Controllers
             OldEmployee.Salary=employee.Salary;
             OldEmployee.Password=employee.Password;
             OldEmployee.Age=employee.Age;
+            OldEmployee.Off_Id=employee.Off_Id;
 
             
             context.SaveChanges();

@@ -1,0 +1,25 @@
+﻿@model Office
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+
+
+
+
+<form action="/office/EditInDB" method="post">
+    <input type="number" name="Id" id="Id" value="@Model.Id" hidden />
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="Name" aria-describedby="Name" name="Name" value="@Model.Name">
+    </div>
+    <div class="mb-3">
+        <label for="Location" class="form-label">Location</label>
+        <input type="text" class="form-control" id="Location" aria-describedby="Location" name="Location" value="@Model.Location">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

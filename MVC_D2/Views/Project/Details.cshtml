@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+@model Project
+
+<div class="card">
+    
+        <h5 class="card-title">@Model.Name</h5>
+
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Description : @Model.Description</li>
+    </ul>
+    <div class="card-body">
+        <a asp-controller="project" asp-action="Index" class="card-link">Back to projects</a>
+
+    </div>
+</div>
+
+

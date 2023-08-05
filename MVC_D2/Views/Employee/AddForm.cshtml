@@ -1,4 +1,4 @@
-﻿
+﻿@model Employee
 @{
     ViewData["Title"] = "AddForm";
 }
@@ -25,7 +25,20 @@
         <label for="Password" class="form-label">Password</label>
         <input type="password" class="form-control" id="Password" name="Password">
     </div>
-    
+
+    <div class="mb-3">
+        <label for="Off_Id" class="form-label">Office</label>
+
+        <select class="form-select" aria-label="Default select example" id="Off_Id" name="Off_Id">
+
+            @foreach (var item in ViewBag.offices)
+            {
+               
+                    <option value="@item.Id"> @item.Name  </option>
+                
+            }
+        </select>
+    </div>
     
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

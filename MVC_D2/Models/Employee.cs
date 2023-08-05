@@ -13,9 +13,9 @@ namespace MVC_D2.Models
         public string Email { get; set; }
         public string Password { get; set; }
         [ForeignKey("office")]
-        public int? Off_Id { get; set; }
+        public int Off_Id { get; set; }
         // Navigators
-        public Office? office { get; set; }
+        public Office office { get; set; }
         public List <Emp_proj> emp_Projs { get; set; }
 
     }

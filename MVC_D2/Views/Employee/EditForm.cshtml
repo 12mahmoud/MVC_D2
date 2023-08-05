@@ -23,8 +23,26 @@
         <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email">
 </div>
 <div class="mb-3">
-        <label for="Password" class="form-label">Passwordl</label>
+        <label for="Password" class="form-label">Password</label>
         <input type="password" class="form-control" id="Password" name="Password" value="@Model.Password">
 </div>
+
+    <div class="mb-3">
+        <label for="Off_Id" class="form-label">Office</label>
+        
+        <select class="form-select" aria-label="Default select example" id="Off_Id" name="Off_Id">
+            
+            @foreach (var item in ViewBag.offices)
+            {
+                @if (Model.Off_Id ==item.Id){
+                    <option value="@item.Id" selected> @item.Name  </option>
+                }
+                else
+                {
+                    <option value="@item.Id" > @item.Name  </option>
+                }
+            }
+        </select>
+    </div>
 <button type="submit" class="btn btn-primary">Submit</button>
 </form>
